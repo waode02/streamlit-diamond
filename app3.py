@@ -1,5 +1,5 @@
 import streamlit as st
-import pickle
+import joblib
 import numpy as np
 
 st.set_page_config(page_title="💎 Diamond Price Predictor", layout="centered")
@@ -11,8 +11,7 @@ st.divider()
 # Load model
 @st.cache_resource
 def load_model():
-    with open("best_diamond_model.pkl", "rb") as f:
-        return pickle.load(f)
+    return joblib.load("best_diamond_model.pkl")
 
 model = load_model()
 
